@@ -7,7 +7,7 @@ Python implementations of classic algorithms, each with tests.
 Classical (non-quantum) integer factoring algorithms, listed from slowest to fastest. They'll be implemented in that order.
 
 - [x] Fermat's method: `algorithms/factoring/fermat.py`
-- [ ] Trial division
+- [x] Trial division (plain, wheel, prime table): `algorithms/factoring/trial_division.py`
 - [ ] Lehman's method
 - [ ] Pollard's p − 1
 - [ ] Williams' p + 1
@@ -26,4 +26,10 @@ Requires Python 3.10+.
 ```bash
 python -m pip install -e ".[dev]"
 python -m pytest
+```
+
+Benchmarks live in `benchmarks/`, for example:
+
+```bash
+python benchmarks/trial_division.py
 ```

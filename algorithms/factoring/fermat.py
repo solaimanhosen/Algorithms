@@ -26,6 +26,8 @@ from __future__ import annotations
 
 from math import isqrt
 
+from algorithms._validation import check_positive_int
+
 # Quadratic residues modulo 64: a perfect square must leave one of these
 # remainders. Checking this first skips the comparatively costly isqrt()
 # for about 81% of non-squares.
@@ -38,15 +40,6 @@ def _is_square(x: int) -> bool:
         return False
     r = isqrt(x)
     return r * r == x
-
-
-def _check_positive_int(n: object) -> int:
-    # bool is a subclass of int, but True/False are never meant as inputs.
-    if not isinstance(n, int) or isinstance(n, bool):
-        raise TypeError(f"n must be an int, got {type(n).__name__}")
-    if n < 1:
-        raise ValueError(f"n must be a positive integer, got {n}")
-    return n
 
 
 def fermat_factor(n: int, max_iterations: int | None = None) -> tuple[int, int]:
@@ -73,7 +66,7 @@ def fermat_factor(n: int, max_iterations: int | None = None) -> tuple[int, int]:
         >>> fermat_factor(97)
         (1, 97)
     """
-    n = _check_positive_int(n)
+    n = check_positive_int(n)
     if max_iterations is not None and max_iterations < 0:
         raise ValueError("max_iterations must be non-negative")
 
@@ -115,7 +108,7 @@ def fermat_factorize(n: int) -> list[int]:
         >>> fermat_factorize(360)
         [2, 2, 2, 3, 3, 5]
     """
-    n = _check_positive_int(n)
+    n = check_positive_int(n)
     primes: list[int] = []
     stack = [n]
     while stack:
