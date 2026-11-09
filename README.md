@@ -23,10 +23,29 @@ Classical (non-quantum) integer factoring algorithms, listed from slowest to fas
 
 Requires Python 3.10+.
 
+Create and activate a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+```bash
+source .venv/bin/activate
+```
+
+On Windows, activate with `.venv\Scripts\activate` instead.
+
+Install the package in editable mode with the test tools, then run the tests:
+
 ```bash
 python -m pip install -e ".[dev]"
+```
+
+```bash
 python -m pytest
 ```
+
+Dependencies are declared in `pyproject.toml`; there is no `requirements.txt`.
 
 Benchmarks live in `benchmarks/`, for example:
 
