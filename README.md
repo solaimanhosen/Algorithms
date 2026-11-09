@@ -6,7 +6,7 @@ Python implementations of classic algorithms, each with tests.
 
 Classical (non-quantum) integer factoring algorithms, listed from slowest to fastest. They'll be implemented in that order.
 
-- [ ] Fermat's method
+- [x] Fermat's method: `algorithms/factoring/fermat.py`
 - [ ] Trial division
 - [ ] Lehman's method
 - [ ] Pollard's p − 1
@@ -24,6 +24,6 @@ Classical (non-quantum) integer factoring algorithms, listed from slowest to fas
 Requires Python 3.10+.
 
 ```bash
-python -m pip install pytest hypothesis
+python -m pip install -e ".[dev]"
 python -m pytest
 ```
